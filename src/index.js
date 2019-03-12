@@ -8,6 +8,7 @@ import config from './config';
 import users from './routes/users';
 import todos from './routes/todos';
 import { handleError } from './middlewares/error-handler';
+import { notFound } from './middlewares/not-found';
 
 const { port, mongoUri } = config;
 
@@ -22,6 +23,8 @@ app.use(bodyParser.json());
 // Routes
 app.use('/v1/users', users);
 app.use('/v1/todos', todos);
+
+app.use(notFound);
 
 app.use(handleError);
 

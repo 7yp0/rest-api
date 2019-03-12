@@ -1,11 +1,14 @@
 // @flow
-import promiseRouter from 'express-promise-router';
+import express from 'express';
 
-import { verifyCredentials } from '../middlewares/authorization';
-import { validateAuthorizationBody, schemas } from '../utils/validation';
+import {
+  verifyCredentials,
+  validateAuthorizationBody,
+} from '../middlewares/authorization';
+import { schemas } from '../utils/validation';
 import { signUp, signIn } from '../controllers/users';
 
-const router = promiseRouter();
+const router = express.Router();
 
 router
   .route('/signup')

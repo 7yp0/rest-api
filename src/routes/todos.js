@@ -1,10 +1,10 @@
 // @flow
-import promiseRouter from 'express-promise-router';
+import express from 'express';
 
 import { authorizeJwt } from '../middlewares/authorization';
 import { getTodos } from '../controllers/todos';
 
-const router = promiseRouter();
+const router = express.Router();
 
 router.route('/').get(authorizeJwt, getTodos);
 

@@ -10,31 +10,31 @@ export async function signUp(
   response: $Response,
   next: $Next,
 ): Promise<void> {
-  const { email, password } = request.body;
+  try {
+    const { email, password } = request.body;
 
-  const user = await findUserByEmail(email);
+    const user = await findUserByEmail(email);
 
-  if (user) {
-    throw new UserAlreadyExistsException(email);
+    if (user) {
+      throw new UserAlreadyExistsException(email);
+    }
+
+    const id = await saveNewUser({
+      email,
+      password,
+    });
+
+    const token = signToken(id);
+
+    response.status(200).json({ token });
+
+    next();
+  } catch (error) {
+    next(error);
   }
-
-  const id = await saveNewUser({
-    email,
-    password,
-  });
-
-  const token = signToken(id);
-
-  response.status(200).json({ token });
-
-  return next();
 }
 
-export async function signIn(
-  request: $Request,
-  response: $Response,
-  next: $Next,
-): Promise<void> {
+export function signIn(request: $Request, response: $Response, next: $Next) {
   const {
     user: { id },
   } = request;

@@ -6,12 +6,11 @@ import User, { type UserType } from '../models/user';
 
 async function hashPassword(password: string): Promise<string> {
   const salt = await bcrypt.genSalt(config.saltRounds);
-  const hash = await bcrypt.hash(password, salt);
 
-  return hash;
+  return bcrypt.hash(password, salt);
 }
 
-export async function isValidPassword(
+export function isValidPassword(
   realPassword: string,
   comparePassword: string,
 ): Promise<boolean> {
@@ -34,10 +33,10 @@ export async function saveNewUser({
   return newUser.id;
 }
 
-export async function findUserByEmail(email: string): User {
-  return User.findOne({ email });
+export function findUserByEmail(email: string): User {
+  return User.findOne({ email }).exec();
 }
 
-export async function findUserById(id: string): User {
-  return User.findById(id);
+export function findUserById(id: string): User {
+  return User.findById(id).exec();
 }

@@ -1666,14 +1666,6 @@ expand-range@^1.8.1:
   dependencies:
     fill-range "^2.1.0"
 
-express-promise-router@^3.0.2:
-  version "3.0.2"
-  resolved "https://registry.yarnpkg.com/express-promise-router/-/express-promise-router-3.0.2.tgz#2cf0dde8d903605071b52278a6dd1ae0ff0093e2"
-  dependencies:
-    is-promise "^2.1.0"
-    lodash.flattendeep "^4.0.0"
-    methods "^1.0.0"
-
 express@^4.16.3:
   version "4.16.3"
   resolved "https://registry.yarnpkg.com/express/-/express-4.16.3.tgz#6af8a502350db3246ecc4becf6b5a34d22f7ed53"
@@ -2572,10 +2564,6 @@ locate-path@^2.0.0:
     p-locate "^2.0.0"
     path-exists "^3.0.0"
 
-lodash.flattendeep@^4.0.0:
-  version "4.4.0"
-  resolved "https://registry.yarnpkg.com/lodash.flattendeep/-/lodash.flattendeep-4.4.0.tgz#fb030917f86a3134e5bc9bec0d69e0013ddfedb2"
-
 lodash.get@4.4.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
@@ -2680,7 +2668,7 @@ merge-descriptors@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/merge-descriptors/-/merge-descriptors-1.0.1.tgz#b00aaa556dd8b44568150ec9d1b953f3f90cbb61"
 
-methods@^1.0.0, methods@~1.1.2:
+methods@~1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/methods/-/methods-1.1.2.tgz#5529a4d67654134edcc5266656835b0f851afcee"
 
